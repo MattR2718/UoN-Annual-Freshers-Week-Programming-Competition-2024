@@ -4,7 +4,7 @@ locations = input().split(" ")
 for i, l in enumerate(locations):
     locations[i] = int(l)
 
-print(locations)
+#print(locations)
 
 at_want = {}
 
@@ -12,30 +12,33 @@ for i, v in enumerate(locations):
     #at_want.append((i + 1, v))
     at_want[i + 1] = v
 
-print(at_want)
+#print(at_want)
 
 groups = [[]]
 
+#print(at_want.items())
+
 done = []
-print(at_want.items())
+for i in range(1, n + 1):
+    g = []
 
-for i in at_want.items():
-    #done.append(i.)
-    break
+    if at_want[i] == i:
+        done.append(i)
+        continue
 
-print(done)
+    if not i in done:
+        n = i
+        while not n in done:
+            g.append(at_want[n])
+            done.append(n)
+            n = at_want[n]
+        groups.append(g)            
 
+#print(groups)
 
-for p in at_want:
-    if p[0] != p[1]:
-        for g in groups:
-            if p[0] in g and not p[1] in g:
-                g.append(p[1])
-            #elif p[1] in g and not p[0] in g:
-            #    g.append(p[0])
-            elif not p[0] in g and not p[1] in g:
-                g.append(p[1])
-            #    g.append(p[0])
-            
+ans = 0
+for g in groups:
+    ans += len(g)
 
-print(groups)
+ans += len(groups) - 1
+print(ans)
