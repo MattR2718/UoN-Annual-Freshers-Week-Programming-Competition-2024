@@ -1,0 +1,2 @@
+def ps(n):
+    prime = []
