@@ -17,14 +17,14 @@ class Input:
 
         num_r = int(input())
         jhstr = input().split(" ")
-        jh = (int(math.ceil(int(jhstr[0]) / 50)), int(math.ceil(int(jhstr[1]) / 50)))
+        jh = (int(math.ceil((int(jhstr[0]) + 40000) / 50)), int(math.ceil((int(jhstr[1]) + 40000) / 50)))
         strs = []
         for r in range(num_r):
             txt = input().split(" ")
-            pos = (int(math.ceil(int(txt[0]) / 50)), int(math.ceil(int(txt[1]) / 50)))
+            pos = (int(math.ceil((int(txt[0]) + 40000) / 50)), int(math.ceil((int(txt[1]) + 40000) / 50)))
             strs.append(pos)
         pstr = input().split(" ")
-        ps = (int(math.ceil(int(pstr[0]) / 50)), int(math.ceil(int(pstr[1]) / 50)))
+        ps = (int(math.ceil((int(pstr[0]) + 40000) / 50)), int(math.ceil((int(pstr[1]) +40000) / 50)))
 
         self.jHome = jh
         self.stores = strs
@@ -83,8 +83,11 @@ class Input:
             return "happy"
         else:
             return "sad"
-        return
 
+
+if num_t == 0:
+    print("sad")
+    quit()
 
 tests = []
 
